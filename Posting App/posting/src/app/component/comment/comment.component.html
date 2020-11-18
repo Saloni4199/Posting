@@ -1,0 +1,6 @@
+<form [formGroup]="commentForm" (keyup.enter)="addComment()">
+<input type="text" class="form-control" placeholder="Add new comment.." formControlName="comment">
+</form>
+<div class="container" *ngFor="let post of getComment(postId)">
+   <p>commented by: {{post.user}}---{{post.comment}}</p>
+</div>

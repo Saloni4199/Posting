@@ -1,0 +1,104 @@
+  <div class="row">
+  <div class="col-md-4 offset-md-4">
+  <div class="card">
+  <div class="container">
+  <h1 class="text-center">Signup</h1>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="name"
+        [class.is-invalid]="
+          signUpForm.get('name').invalid && signUpForm.get('name').touched
+        "
+        class="form-control"
+        placeholder="Name"
+      />
+      <small
+        [class.d-none]="
+          signUpForm.get('name').valid || signUpForm.get('name').untouched
+        "
+        class="text-danger"
+        >Name is required</small
+      >
+    </div>
+    <div class="form-group">
+      <input
+        type="email"
+        formControlName="email"
+        [class.is-invalid]="
+          signUpForm.get('email').invalid && signUpForm.get('email').touched
+        "
+        class="form-control"
+        placeholder="Email"
+        email="true"
+      />
+      <small
+        [class.d-none]="
+          signUpForm.get('email').valid || signUpForm.get('email').untouched
+        "
+        class="text-danger"
+        >Email is required</small
+      >
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="username"
+        class="form-control"
+        placeholder="User Name"
+      />
+      <div
+        *ngIf="
+          signUpForm.get('username').invalid &&
+          signUpForm.get('username').touched
+        "
+      >
+        <small
+          *ngIf="signUpForm.get('username').errors?.required"
+          class="text-danger"
+          >username is required</small
+        >
+        <small
+          *ngIf="signUpForm.get('username').errors?.minlength"
+          class="text-danger"
+          >username should be minimum 3 character long</small
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control"
+        placeholder="Password"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        formControlName="confirmPassword"
+        class="form-control"
+        [class.is-invalid]="signUpForm.errors?.misMatch"
+        placeholder="Confirm Password"
+      />
+      <small class="text-danger" *ngIf="signUpForm.errors?.misMatch"
+        >Password do not match</small
+      >
+    </div>
+    <button
+      [disabled]="signUpForm.invalid"
+      type="submit"
+      class="btn btn-success btn-space"
+    >
+      Signup
+    </button>
+    <small> Already have account?</small>
+    <a type="button" class="btn btn-primary" [routerLink]="['/signin']">
+      Login
+    </a>
+  </form>
+</div>
+</div>
+</div>
+</div>

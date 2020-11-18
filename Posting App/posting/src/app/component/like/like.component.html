@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row">
+      <p class="col">{{postdata.likes}}</p>
+      <button *ngIf="!postdata.likes" class="col btn btn-success" (click)="likeButtonClick()">Like</button>
+      <button *ngIf="postdata.likes" class="col btn btn-danger" (click)="dislikeButtonClick()">Dislike</button>
+    </div>
+</div>

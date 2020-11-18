@@ -1,0 +1,15 @@
+<div class="container" *ngFor="let post of postdata.slice().reverse()">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <h3>Posted By:{{ post.user }}</h3>
+        <img class="card-img-top" [src]="post.image" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{ post.caption }}</h5>
+          <app-like [numberOfLikes]="post.likes" [postId]="post.id"></app-like>
+          <app-comment [postId]="post.id"></app-comment>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div *ngIf="displayAppComponent">
+<div class="container">
+    <h1 class="text-center">ITTgram</h1>
+  </div>
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
+    <ul class="navbar-nav" routerLinkActive="active">
+      <a class="navbar-brand" href="home">Welcome {{user}}</a>
+      <li class="nav-item nav-right"><a class="nav-link" routerLink="/home">Home</a></li>
+      <li class="nav-item nav-right"><a class="nav-link" routerLink="/post">Add Post</a></li>
+      <!-- <a class="nav-link" [routerLink]="['']" (click)="logout()">Logout</a></li> -->
+    </ul>
+    <div class="right">
+      <li class="nav-item nav-right"><button class="btn btn-outline-light" (click)="logout()" [routerLink]="['']">Logout</button></li>
+    </div>
+</nav>
+</div>
+<router-outlet></router-outlet>
